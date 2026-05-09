@@ -4,12 +4,10 @@ import {
   Menu,
   Bell,
   Star,
-  Home,
-  BookOpen,
-  Sparkles,
-  Lightbulb,
   SlidersHorizontal,
+  MessageSquare,
 } from "lucide-react";
+import { BottomNav } from "@/components/BottomNav";
 
 export const Route = createFileRoute("/")({
   component: RecommendationsScreen,
