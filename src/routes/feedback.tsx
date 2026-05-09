@@ -6,10 +6,6 @@ import {
   ThumbsUp,
   ThumbsDown,
   Check,
-  Home,
-  BookOpen,
-  Sparkles,
-  Lightbulb,
 } from "lucide-react";
 
 export const Route = createFileRoute("/feedback")({
@@ -194,15 +190,7 @@ function FeedbackScreen() {
           </div>
         </main>
 
-        {/* Bottom nav */}
-        <nav className="fixed inset-x-0 bottom-0 z-10 border-t border-hairline bg-background">
-          <div className="mx-auto grid max-w-md grid-cols-4">
-            <NavItem icon={Home} label="Home" />
-            <NavItem icon={BookOpen} label="Library" />
-            <NavItem icon={Sparkles} label="AI Query" />
-            <NavItem icon={Lightbulb} label="Recommend" active />
-          </div>
-        </nav>
+        <BottomNav active="Recommend" />
       </div>
     </div>
   );
@@ -223,11 +211,7 @@ function Section({
   );
 }
 
-function NavItem({
-  icon: Icon,
-  label,
-  active,
-}: {
+: {
   icon: typeof Home;
   label: string;
   active?: boolean;
