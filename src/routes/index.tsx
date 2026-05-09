@@ -4,12 +4,10 @@ import {
   Menu,
   Bell,
   Star,
-  Home,
-  BookOpen,
-  Sparkles,
-  Lightbulb,
   SlidersHorizontal,
+  MessageSquare,
 } from "lucide-react";
+import { BottomNav } from "@/components/BottomNav";
 
 export const Route = createFileRoute("/")({
   component: RecommendationsScreen,
@@ -132,15 +130,8 @@ function RecommendationsScreen() {
           <Section title="Recently Viewed" docs={RECENT} />
         </main>
 
-        {/* Bottom nav */}
-        <nav className="fixed inset-x-0 bottom-0 z-10 border-t border-hairline bg-background">
-          <div className="mx-auto grid max-w-md grid-cols-4">
-            <NavItem icon={Home} label="Home" />
-            <NavItem icon={BookOpen} label="Library" />
-            <NavItem icon={Sparkles} label="AI Query" />
-            <NavItem icon={Lightbulb} label="Recommend" active />
-          </div>
-        </nav>
+        <BottomNav active="Recommend" />
+
       </div>
     </div>
   );
@@ -172,8 +163,15 @@ function Section({
 
 function DocCard({ doc }: { doc: Doc }) {
   return (
-    <article className="rounded-2xl border border-hairline bg-card p-4 shadow-[var(--shadow-card)]">
-      <h3 className="text-sm font-semibold leading-snug">{doc.title}</h3>
+    <article className="relative rounded-2xl border border-hairline bg-card p-4 shadow-[var(--shadow-card)]">
+      <Link
+        to="/feedback"
+        aria-label="Give feedback"
+        className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full text-foreground/55 hover:text-brand"
+      >
+        <MessageSquare className="h-4 w-4" />
+      </Link>
+      <h3 className="pr-8 text-sm font-semibold leading-snug">{doc.title}</h3>
       <div className="mt-2 flex flex-wrap gap-1.5">
         {doc.tags.map((t) => (
           <span
@@ -199,24 +197,3 @@ function DocCard({ doc }: { doc: Doc }) {
   );
 }
 
-function NavItem({
-  icon: Icon,
-  label,
-  active,
-}: {
-  icon: typeof Home;
-  label: string;
-  active?: boolean;
-}) {
-  return (
-    <button
-      className={
-        "flex flex-col items-center gap-1 py-3 text-[10px] font-medium " +
-        (active ? "text-brand" : "text-foreground/55")
-      }
-    >
-      <Icon className={"h-5 w-5 " + (active ? "stroke-[2.5]" : "")} />
-      {label}
-    </button>
-  );
-}
