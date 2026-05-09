@@ -66,7 +66,7 @@ const RECENT: Doc[] = [
   },
 ];
 
-function RecommendationsScreen() {
+export function RecommendationsScreen() {
   const [active, setActive] = useState<(typeof TABS)[number]>("For You");
 
   return (
