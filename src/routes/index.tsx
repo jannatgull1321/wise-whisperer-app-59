@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import {
   Menu,
@@ -8,6 +8,7 @@ import {
   BookOpen,
   Sparkles,
   Lightbulb,
+  SlidersHorizontal,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
