@@ -176,7 +176,7 @@ function DocCard({ doc }: { doc: Doc }) {
         {doc.tags.map((t) => (
           <span
             key={t}
-            className="rounded-md bg-tag px-2 py-0.5 text-[11px] font-medium text-tag-foreground"
+            className="rounded-full bg-tag px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-tag-foreground"
           >
             {t}
           </span>
