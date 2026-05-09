@@ -192,20 +192,3 @@ function HistoryScreen() {
   );
 }
 
-: {
-  icon: typeof Home;
-  label: string;
-  active?: boolean;
-}) {
-  return (
-    <button
-      className={
-        "flex flex-col items-center gap-1 py-3 text-[10px] font-medium " +
-        (active ? "text-brand" : "text-foreground/55")
-      }
-    >
-      <Icon className={"h-5 w-5 " + (active ? "stroke-[2.5]" : "")} />
-      {label}
-    </button>
-  );
-}
