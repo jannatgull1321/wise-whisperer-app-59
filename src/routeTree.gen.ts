@@ -9,10 +9,16 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as RelatedRouteImport } from './routes/related'
 import { Route as HistoryRouteImport } from './routes/history'
 import { Route as FilterRouteImport } from './routes/filter'
 import { Route as IndexRouteImport } from './routes/index'
 
+const RelatedRoute = RelatedRouteImport.update({
+  id: '/related',
+  path: '/related',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const HistoryRoute = HistoryRouteImport.update({
   id: '/history',
   path: '/history',
@@ -33,34 +39,45 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/filter': typeof FilterRoute
   '/history': typeof HistoryRoute
+  '/related': typeof RelatedRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/filter': typeof FilterRoute
   '/history': typeof HistoryRoute
+  '/related': typeof RelatedRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/filter': typeof FilterRoute
   '/history': typeof HistoryRoute
+  '/related': typeof RelatedRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/filter' | '/history'
+  fullPaths: '/' | '/filter' | '/history' | '/related'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/filter' | '/history'
-  id: '__root__' | '/' | '/filter' | '/history'
+  to: '/' | '/filter' | '/history' | '/related'
+  id: '__root__' | '/' | '/filter' | '/history' | '/related'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   FilterRoute: typeof FilterRoute
   HistoryRoute: typeof HistoryRoute
+  RelatedRoute: typeof RelatedRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/related': {
+      id: '/related'
+      path: '/related'
+      fullPath: '/related'
+      preLoaderRoute: typeof RelatedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/history': {
       id: '/history'
       path: '/history'
@@ -89,6 +106,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   FilterRoute: FilterRoute,
   HistoryRoute: HistoryRoute,
+  RelatedRoute: RelatedRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
