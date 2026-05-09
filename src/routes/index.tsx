@@ -188,9 +188,12 @@ function DocCard({ doc }: { doc: Doc }) {
         {doc.desc}
       </p>
       <div className="mt-3 flex justify-end">
-        <button className="rounded-lg bg-brand px-3.5 py-2 text-xs font-medium text-brand-foreground">
+        <Link
+          to="/related"
+          className="rounded-lg bg-brand px-3.5 py-2 text-xs font-medium text-brand-foreground"
+        >
           View Details
-        </button>
+        </Link>
       </div>
     </article>
   );
