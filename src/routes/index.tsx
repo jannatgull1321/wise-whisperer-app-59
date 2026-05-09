@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import {
   Menu,
@@ -8,6 +8,7 @@ import {
   BookOpen,
   Sparkles,
   Lightbulb,
+  SlidersHorizontal,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
@@ -92,7 +93,7 @@ function RecommendationsScreen() {
         </header>
 
         {/* Filter tabs */}
-        <div className="flex gap-2 px-4 py-3">
+        <div className="flex items-center gap-2 px-4 py-3">
           {TABS.map((t) => {
             const isActive = active === t;
             return (
@@ -110,6 +111,13 @@ function RecommendationsScreen() {
               </button>
             );
           })}
+          <Link
+            to="/filter"
+            aria-label="Open filters"
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-hairline bg-background text-foreground"
+          >
+            <SlidersHorizontal className="h-4 w-4" />
+          </Link>
         </div>
 
         {/* Content */}
