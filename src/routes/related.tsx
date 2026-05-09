@@ -69,7 +69,7 @@ const RESOURCES: Resource[] = [
 
 const SORTS = ["Relevance", "Newest", "Most Viewed"] as const;
 
-function RelatedResourcesScreen() {
+export function RelatedResourcesScreen() {
   const router = useRouter();
   const [saved, setSaved] = useState<Record<string, boolean>>({});
   const [sort, setSort] = useState<(typeof SORTS)[number]>("Relevance");
