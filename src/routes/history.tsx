@@ -187,7 +187,7 @@ function HistoryScreen() {
           </section>
         </main>
 
-        <BottomNav active="Recommend" />
+        <BottomNav />
       </div>
     </div>
   );
