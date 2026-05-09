@@ -115,11 +115,11 @@ function HistoryScreen() {
             </p>
           ) : (
             filtered.map((g) => (
-              <section key={g.label} className="mt-5">
-                <h2 className="mb-1 text-xs font-medium text-foreground/55">
+              <section key={g.label} className="mt-6">
+                <h2 className="mb-2 text-sm font-bold text-foreground">
                   {g.label}
                 </h2>
-                <ul className="overflow-hidden rounded-xl border border-hairline bg-card">
+                <ul className="overflow-hidden rounded-xl border border-hairline bg-card shadow-[var(--shadow-card)]">
                   {g.entries.map((e, i) => (
                     <li
                       key={e.query}
@@ -130,14 +130,14 @@ function HistoryScreen() {
                           : "")
                       }
                     >
-                      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-surface text-foreground/60">
+                      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand/10 text-brand">
                         <Search className="h-4 w-4" />
                       </span>
-                      <button className="flex min-w-0 flex-1 items-center justify-between gap-3 text-left">
-                        <span className="min-w-0 truncate text-sm text-foreground">
+                      <button className="flex min-w-0 flex-1 flex-col items-start text-left">
+                        <span className="min-w-0 truncate text-sm font-medium text-foreground">
                           {e.query}
                         </span>
-                        <span className="shrink-0 text-[11px] text-foreground/50">
+                        <span className="text-[11px] text-foreground/50">
                           {e.when}
                         </span>
                       </button>
@@ -151,7 +151,7 @@ function HistoryScreen() {
 
           {/* Suggested */}
           <section className="mt-7">
-            <h2 className="mb-3 text-sm font-semibold">
+            <h2 className="mb-3 text-sm font-bold text-foreground">
               Suggested Based on History
             </h2>
             <div className="flex flex-col gap-3">
@@ -160,14 +160,14 @@ function HistoryScreen() {
                   key={d.title}
                   className="rounded-2xl border border-hairline bg-card p-4 shadow-[var(--shadow-card)]"
                 >
-                  <h3 className="text-sm font-semibold leading-snug">
+                  <h3 className="text-sm font-bold leading-snug text-foreground">
                     {d.title}
                   </h3>
                   <div className="mt-2 flex flex-wrap gap-1.5">
                     {d.tags.map((t) => (
                       <span
                         key={t}
-                        className="rounded-md bg-tag px-2 py-0.5 text-[11px] font-medium text-tag-foreground"
+                        className="rounded-full bg-tag px-2.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-tag-foreground"
                       >
                         {t}
                       </span>
@@ -177,7 +177,7 @@ function HistoryScreen() {
                     {d.desc}
                   </p>
                   <div className="mt-3 flex justify-end">
-                    <button className="rounded-lg bg-brand px-3.5 py-2 text-xs font-medium text-brand-foreground">
+                    <button className="rounded-lg bg-brand px-3.5 py-2 text-xs font-semibold text-brand-foreground">
                       View Details
                     </button>
                   </div>
@@ -186,6 +186,8 @@ function HistoryScreen() {
             </div>
           </section>
         </main>
+
+        <BottomNav />
 
         <BottomNav />
       </div>
