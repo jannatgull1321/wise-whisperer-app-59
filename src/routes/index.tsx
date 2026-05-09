@@ -130,15 +130,8 @@ function RecommendationsScreen() {
           <Section title="Recently Viewed" docs={RECENT} />
         </main>
 
-        {/* Bottom nav */}
-        <nav className="fixed inset-x-0 bottom-0 z-10 border-t border-hairline bg-background">
-          <div className="mx-auto grid max-w-md grid-cols-4">
-            <NavItem icon={Home} label="Home" />
-            <NavItem icon={BookOpen} label="Library" />
-            <NavItem icon={Sparkles} label="AI Query" />
-            <NavItem icon={Lightbulb} label="Recommend" active />
-          </div>
-        </nav>
+        <BottomNav active="Recommend" />
+
       </div>
     </div>
   );
