@@ -83,13 +83,14 @@ function RecommendationsScreen() {
             <Menu className="h-6 w-6" />
           </button>
           <h1 className="text-lg font-semibold">Recommendations</h1>
-          <button
-            aria-label="Notifications"
+          <Link
+            to="/history"
+            aria-label="Past searches"
             className="relative flex h-10 w-10 items-center justify-center rounded-lg text-foreground"
           >
             <Bell className="h-6 w-6" />
             <span className="absolute right-2 top-2 h-2 w-2 rounded-full bg-brand" />
-          </button>
+          </Link>
         </header>
 
         {/* Filter tabs */}
