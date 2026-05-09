@@ -1,3 +1,4 @@
+import { BottomNav } from "@/components/BottomNav";
 import { createFileRoute, Link, useRouter } from "@tanstack/react-router";
 import { useState } from "react";
 import {
