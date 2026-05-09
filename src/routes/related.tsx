@@ -203,7 +203,9 @@ function ResourceCard({
         <Icon className="h-5 w-5" />
       </span>
 
-      <h3 className="mt-3 text-sm font-semibold leading-snug">{r.title}</h3>
+      <Link to="/feedback" className="mt-3 text-sm font-semibold leading-snug hover:text-brand">
+        {r.title}
+      </Link>
 
       <span className="mt-2 inline-flex w-fit rounded-md bg-tag px-2 py-0.5 text-[11px] font-medium text-tag-foreground">
         {r.tag}

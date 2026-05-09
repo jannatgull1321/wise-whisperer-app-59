@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as RelatedRouteImport } from './routes/related'
 import { Route as HistoryRouteImport } from './routes/history'
 import { Route as FilterRouteImport } from './routes/filter'
+import { Route as FeedbackRouteImport } from './routes/feedback'
 import { Route as IndexRouteImport } from './routes/index'
 
 const RelatedRoute = RelatedRouteImport.update({
@@ -29,6 +30,11 @@ const FilterRoute = FilterRouteImport.update({
   path: '/filter',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FeedbackRoute = FeedbackRouteImport.update({
+  id: '/feedback',
+  path: '/feedback',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -37,12 +43,14 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/feedback': typeof FeedbackRoute
   '/filter': typeof FilterRoute
   '/history': typeof HistoryRoute
   '/related': typeof RelatedRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/feedback': typeof FeedbackRoute
   '/filter': typeof FilterRoute
   '/history': typeof HistoryRoute
   '/related': typeof RelatedRoute
@@ -50,20 +58,22 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/feedback': typeof FeedbackRoute
   '/filter': typeof FilterRoute
   '/history': typeof HistoryRoute
   '/related': typeof RelatedRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/filter' | '/history' | '/related'
+  fullPaths: '/' | '/feedback' | '/filter' | '/history' | '/related'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/filter' | '/history' | '/related'
-  id: '__root__' | '/' | '/filter' | '/history' | '/related'
+  to: '/' | '/feedback' | '/filter' | '/history' | '/related'
+  id: '__root__' | '/' | '/feedback' | '/filter' | '/history' | '/related'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  FeedbackRoute: typeof FeedbackRoute
   FilterRoute: typeof FilterRoute
   HistoryRoute: typeof HistoryRoute
   RelatedRoute: typeof RelatedRoute
@@ -92,6 +102,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof FilterRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/feedback': {
+      id: '/feedback'
+      path: '/feedback'
+      fullPath: '/feedback'
+      preLoaderRoute: typeof FeedbackRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -104,6 +121,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  FeedbackRoute: FeedbackRoute,
   FilterRoute: FilterRoute,
   HistoryRoute: HistoryRoute,
   RelatedRoute: RelatedRoute,
