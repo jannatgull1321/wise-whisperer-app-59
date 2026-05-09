@@ -163,8 +163,15 @@ function Section({
 
 function DocCard({ doc }: { doc: Doc }) {
   return (
-    <article className="rounded-2xl border border-hairline bg-card p-4 shadow-[var(--shadow-card)]">
-      <h3 className="text-sm font-semibold leading-snug">{doc.title}</h3>
+    <article className="relative rounded-2xl border border-hairline bg-card p-4 shadow-[var(--shadow-card)]">
+      <Link
+        to="/feedback"
+        aria-label="Give feedback"
+        className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full text-foreground/55 hover:text-brand"
+      >
+        <MessageSquare className="h-4 w-4" />
+      </Link>
+      <h3 className="pr-8 text-sm font-semibold leading-snug">{doc.title}</h3>
       <div className="mt-2 flex flex-wrap gap-1.5">
         {doc.tags.map((t) => (
           <span
