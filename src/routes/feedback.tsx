@@ -191,7 +191,7 @@ function FeedbackScreen() {
           </div>
         </main>
 
-        <BottomNav active="Recommend" />
+        <BottomNav />
       </div>
     </div>
   );

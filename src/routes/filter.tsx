@@ -188,7 +188,7 @@ function FilterScreen() {
           </div>
         </main>
 
-        <BottomNav active="Recommend" />
+        <BottomNav />
       </div>
     </div>
   );

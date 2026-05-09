@@ -156,7 +156,7 @@ export function RelatedResourcesScreen() {
           </div>
         </main>
 
-        <BottomNav active="Recommend" />
+        <BottomNav />
       </div>
     </div>
   );

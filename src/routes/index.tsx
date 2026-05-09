@@ -130,7 +130,7 @@ export function RecommendationsScreen() {
           <Section title="Recently Viewed" docs={RECENT} />
         </main>
 
-        <BottomNav active="Recommend" />
+        <BottomNav />
 
       </div>
     </div>
